@@ -1,0 +1,89 @@
+% Layout
+\documentclass[11pt, pagesize, paper = 6in:9in, DIV = 12]{scrbook}
+
+% Encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% Typography
+\usepackage[osf]{heuristica}
+\usepackage[condensed]{cabin}
+
+% Microtypography
+\usepackage[tracking = true, babel = true, factor = 1100, stretch = 10, shrink = 10]{microtype}
+\SetTracking{encoding = {*}, shape = sc}{40} % less tracking
+\SetProtrusion{encoding={*},family={*},series={*},size={6,7}}{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500}, 6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}} % http://www.khirevich.com/latex/microtype/
+\usepackage[splitrule]{footmisc} % https://tex.stackexchange.com/a/32212
+\usepackage{nowidow} % provides \nowidow, \noclub
+
+% Hyperlink styles
+\usepackage[setpagesize = false, pdfpagelayout = TwoPageRight]{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor = {red!50!black},
+	citecolor = {red!50!black},
+	urlcolor = {blue!80!black}
+}
+
+\usepackage[a-1b]{pdfx}
+\title{In Defense of Marxism}
+\author{Leon Trotsky}
+\date{1938--1939}
+
+% Structural macros
+
+\newcommand{\chapterdated}[2]{
+  \chapter[#1 \\ \textnormal{#2}]{#1}
+  \markboth{\textit{#2}}{\textit{#1}}
+}
+
+\newenvironment{letterinfo}{
+  \begin{flushleft}
+    \footnotesize
+    \setlength{\parindent}{0em}
+}{
+  \end{flushleft}
+}
+
+\newcommand{\letterdate}[1]{
+  \begin{flushright}
+  	\textsc{#1}
+  \end{flushright}
+}
+
+\newcommand{\letteraddress}[1]{
+  \begin{flushleft}
+  	\textsc{#1}
+  \end{flushleft}
+}
+
+\newcommand{\signed}[1]{
+  \begin{flushright}
+  	#1
+  \end{flushright}
+}
+
+% Text helpers
+\newcommand{\USSR}{\textsc{ussr}}
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\ed}{\emph{Ed.}}
+
+% Fake small caps for italic Heuristica
+\newcommand{\fakesc}[1]{\textls{\footnotesize #1}}
+
+\usepackage{layouts}
+
+\begin{document}
+
+  \frontmatter
+    \maketitle
+    \tableofcontents
+
+  \mainmatter
+    \include{1939-09-12_a-letter-to-james-p-cannon}
+    \include{1939-09-25_the-ussr-in-war}
+    \include{1939-10-08_a-letter-to-sherman-stanley}
+
+\end{document}
