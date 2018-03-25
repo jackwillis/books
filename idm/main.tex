@@ -1,5 +1,5 @@
 % Layout
-\documentclass[11pt, pagesize, paper = 6in:9in, DIV = 12]{scrbook}
+\documentclass[11pt, openany, pagesize, paper = 6in:9in, DIV = 12]{scrbook}
 
 % Encoding
 \usepackage[T1]{fontenc}
@@ -7,7 +7,7 @@
 \usepackage[english]{babel}
 
 % Typography
-\usepackage[osf]{heuristica}
+\usepackage[osf, scaled = 0.95]{heuristica}
 \usepackage[condensed]{cabin}
 
 % Microtypography
@@ -34,10 +34,19 @@
 
 % Structural macros
 
-\newcommand{\chapterdated}[2]{
-  \chapter[#1 \\ \textnormal{#2}]{#1}
-  \letterdate{#2}
-  \markboth{\textit{#2}}{\textit{#1}}
+\usepackage{etoolbox}
+
+% Ex: `\chapterdated[Chapter title]{Chapter title\footnote{a remark}}{April 20, 1942}
+%
+\newcommand{\chapterdated}[3][]{
+  \ifstrempty{#1}{%
+  	\chapter[#2 \\ \textnormal{#3}]{#2}
+  	\markboth{\textit{#3}}{\textit{#2}}
+  }{%
+  	\chapter[#1 \\ \textnormal{#3}]{#2}
+  	\markboth{\textit{#3}}{\textit{#1}}
+  }
+  \letterdate{#3}
 }
 
 \newenvironment{letterinfo}{
@@ -72,7 +81,7 @@
 \newcommand{\USSR}{\textsc{ussr}}
 \newcommand{\ie}{\emph{i.e.}}
 \newcommand{\ed}{\emph{Ed.}}
-\newcommand{\etc}{\emph{etc}}
+\newcommand{\etc}{etc}
 
 % Fake small caps for italic Heuristica
 \newcommand{\fakesc}[1]{\textls{\footnotesize #1}}
@@ -90,5 +99,6 @@
     \include{1939-09-25_the-ussr-in-war}
     \include{1939-10-08_a-letter-to-sherman-stanley}
     \include{1939-10-18_again-and-once-more-again-on-the-nature-of-the-ussr}
+    \include{1939-10-21_the-referendum-and-democratic-centralism}
 
 \end{document}
