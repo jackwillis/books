@@ -1,5 +1,5 @@
 % Layout
-\documentclass[11pt, openany, pagesize, paper = 6in:9in, DIV = 12]{scrbook}
+\documentclass[draft, 11pt, openany, pagesize, paper = 6in:9in, DIV = 12]{scrbook}
 
 % Encoding
 \usepackage[T1]{fontenc}
@@ -10,23 +10,29 @@
 \usepackage[osf, scaled = 0.95]{heuristica}
 \usepackage[condensed]{cabin}
 
-% Microtypography
-\usepackage[tracking = true, babel = true, factor = 1100, stretch = 10, shrink = 10]{microtype}
-\SetTracking{encoding = {*}, shape = sc}{40} % less tracking
-\SetProtrusion{encoding={*},family={*},series={*},size={6,7}}{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500}, 6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}} % http://www.khirevich.com/latex/microtype/
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} % https://www.sharelatex.com/learn/Footnotes#Changing_the_numbering_style
+
 \usepackage[splitrule]{footmisc} % https://tex.stackexchange.com/a/32212
 \usepackage{nowidow} % provides \nowidow, \noclub
+
+\usepackage{ragged2e} % provides \FlushLeft (\flushleft with hyphenation)
+
+% Microtypography
+\usepackage[final, tracking = true, babel = true]{microtype}
+\SetTracking{encoding = {*}, shape = sc}{40} % less tracking
+\SetProtrusion{encoding={*},family={*},series={*},size={6,7}}{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500}, 6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}} % http://www.khirevich.com/latex/microtype/
 
 % Hyperlink styles
 \usepackage[setpagesize = false, pdfpagelayout = TwoPageRight]{hyperref}
 \usepackage{xcolor}
 \hypersetup{
-	colorlinks,
-	linkcolor = {red!50!black},
-	citecolor = {red!50!black},
-	urlcolor = {blue!80!black}
+  colorlinks,
+  linkcolor = {red!50!black},
+  citecolor = {red!50!black},
+  urlcolor = {blue!80!black}
 }
 
+% PDF metadata
 \usepackage[a-1b]{pdfx}
 \title{In Defense of Marxism}
 \author{Leon Trotsky}
@@ -34,7 +40,7 @@
 
 % Structural macros
 
-\usepackage{etoolbox}
+\usepackage{etoolbox} % provides \ifstrempty
 
 % Ex: `\chapterdated[Chapter title]{Chapter title\footnote{a remark}}{April 20, 1942}
 %
@@ -59,6 +65,15 @@
   \end{flushleft}
 }
 
+\newenvironment{postscriptum}{
+  \begin{minipage}{0.7\textwidth}
+  	\RaggedRight % from ragged2e
+}{
+  \end{minipage}
+
+  \vskip \baselineskip
+}
+
 \newcommand{\letterdate}[1]{
   \begin{flushright}
   	\textsc{#1}
@@ -79,14 +94,12 @@
 
 % Text helpers
 \newcommand{\USSR}{\textsc{ussr}}
-\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\ie}{i.e.}
 \newcommand{\ed}{\emph{Ed.}}
 \newcommand{\etc}{etc}
 
 % Fake small caps for italic Heuristica
 \newcommand{\fakesc}[1]{\textls{\footnotesize #1}}
-
-\usepackage{layouts}
 
 \begin{document}
 
@@ -100,5 +113,7 @@
     \include{1939-10-08_a-letter-to-sherman-stanley}
     \include{1939-10-18_again-and-once-more-again-on-the-nature-of-the-ussr}
     \include{1939-10-21_the-referendum-and-democratic-centralism}
+    \include{1939-10-22_a-letter-to-sherman-stanley}
+    \include{1939-10-28_a-letter-to-james-p-cannon}
 
 \end{document}
