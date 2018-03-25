@@ -36,10 +36,13 @@
 
 \newcommand{\chapterdated}[2]{
   \chapter[#1 \\ \textnormal{#2}]{#1}
+  \letterdate{#2}
   \markboth{\textit{#2}}{\textit{#1}}
 }
 
 \newenvironment{letterinfo}{
+  \hrulefill
+  
   \begin{flushleft}
     \footnotesize
     \setlength{\parindent}{0em}
@@ -69,6 +72,7 @@
 \newcommand{\USSR}{\textsc{ussr}}
 \newcommand{\ie}{\emph{i.e.}}
 \newcommand{\ed}{\emph{Ed.}}
+\newcommand{\etc}{\emph{etc}}
 
 % Fake small caps for italic Heuristica
 \newcommand{\fakesc}[1]{\textls{\footnotesize #1}}
@@ -85,5 +89,6 @@
     \include{1939-09-12_a-letter-to-james-p-cannon}
     \include{1939-09-25_the-ussr-in-war}
     \include{1939-10-08_a-letter-to-sherman-stanley}
+    \include{1939-10-18_again-and-once-more-again-on-the-nature-of-the-ussr}
 
 \end{document}
