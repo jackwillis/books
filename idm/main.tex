@@ -1,5 +1,14 @@
 % Layout
-\documentclass[draft, 11pt, openany, pagesize, paper = 6in:9in, DIV = 12]{scrbook}
+\documentclass[
+  draft,
+  11pt,
+  openany,
+  headinclude = on,
+  footinclude = off,
+  pagesize,
+  paper = 6in:9in,
+  DIV = 15
+]{scrbook}
 
 % Encoding
 \usepackage[T1]{fontenc}
@@ -16,6 +25,23 @@
 \usepackage{nowidow} % provides \nowidow, \noclub
 
 \usepackage{ragged2e} % provides \FlushLeft (\flushleft with hyphenation)
+
+% Headers % https://tex.stackexchange.com/a/278604
+\usepackage{scrpage2}
+
+\pagestyle{scrheadings}
+\renewcommand*{\chapterpagestyle}{empty}
+
+\clearscrheadfoot
+
+% left even head (page number, author)
+\lehead{\pagemark \quad \textnormal{\textsc{\Author}}}
+
+% right even head (date)
+\rehead{\headmark}
+
+% right odd head (chapter, page number)
+\rohead{\headmark \quad \pagemark}
 
 % Microtypography
 \usepackage[final, tracking = true, babel = true]{microtype}
@@ -34,9 +60,12 @@
 
 % PDF metadata
 \usepackage[a-1b]{pdfx}
+
+\makeatletter
 \title{In Defense of Marxism}
-\author{Leon Trotsky}
+\author{Leon Trotsky}\let\Author\@author
 \date{1938--1939}
+\makeatother
 
 % Structural macros
 
@@ -47,10 +76,10 @@
 \newcommand{\chapterdated}[3][]{
   \ifstrempty{#1}{%
   	\chapter[#2 \\ \textnormal{#3}]{#2}
-  	\markboth{\textit{#3}}{\textit{#2}}
+  	\markboth{#3}{#2}
   }{%
   	\chapter[#1 \\ \textnormal{#3}]{#2}
-  	\markboth{\textit{#3}}{\textit{#1}}
+  	\markboth{#3}{#1}
   }
   \letterdate{#3}
 }
@@ -76,7 +105,7 @@
 
 \newcommand{\letterdate}[1]{
   \begin{flushright}
-  	\textsc{#1}
+  	\textnormal{#1}
   \end{flushright}
 }
 
@@ -94,6 +123,7 @@
 
 % Text helpers
 \newcommand{\USSR}{\textsc{ussr}}
+\newcommand{\GPU}{\textsc{gpu}}
 \newcommand{\ie}{i.e.}
 \newcommand{\ed}{\emph{Ed.}}
 \newcommand{\etc}{etc}
@@ -115,5 +145,6 @@
     \include{1939-10-21_the-referendum-and-democratic-centralism}
     \include{1939-10-22_a-letter-to-sherman-stanley}
     \include{1939-10-28_a-letter-to-james-p-cannon}
+    \include{1939-11-06_a-letter-to-max-shachtman}
 
 \end{document}
