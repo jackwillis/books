@@ -1,6 +1,5 @@
 % Layout
 \documentclass[
-  draft,
   11pt,
   openany,
   headinclude = on,
@@ -27,7 +26,7 @@
 \usepackage{ragged2e} % provides \FlushLeft (\flushleft with hyphenation)
 
 % Headers % https://tex.stackexchange.com/a/278604
-\usepackage{scrpage2}
+\usepackage{scrlayer-scrpage} % scrpage2 is obsolete
 
 \pagestyle{scrheadings}
 \renewcommand*{\chapterpagestyle}{empty}
@@ -58,7 +57,7 @@
   urlcolor = {blue!80!black}
 }
 
-% PDF metadata
+% PDF & metadata
 \usepackage[a-1b]{pdfx}
 
 \makeatletter
@@ -85,6 +84,8 @@
 }
 
 \newenvironment{letterinfo}{
+  \vspace*{\fill}
+	
   \hrulefill
   
   \begin{flushleft}
@@ -146,5 +147,7 @@
     \include{1939-10-22_a-letter-to-sherman-stanley}
     \include{1939-10-28_a-letter-to-james-p-cannon}
     \include{1939-11-06_a-letter-to-max-shachtman}
+    \include{1939-12-15_a-letter-to-james-p-cannon}
+    \include{1939-12-15_a-petty-bourgeois-opposition-in-the-socialist-workers-party}
 
 \end{document}
