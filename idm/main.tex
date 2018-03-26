@@ -18,6 +18,8 @@
 \usepackage[osf, scaled = 0.95]{heuristica}
 \usepackage[condensed]{cabin}
 
+\KOMAoption{chapterentrydots}{true} % https://tex.stackexchange.com/q/292882
+
 \renewcommand{\thefootnote}{\fnsymbol{footnote}} % https://www.sharelatex.com/learn/Footnotes#Changing_the_numbering_style
 
 \usepackage[splitrule]{footmisc} % https://tex.stackexchange.com/a/32212
@@ -33,14 +35,9 @@
 
 \clearscrheadfoot
 
-% left even head (page number, author)
-\lehead{\pagemark \quad \textnormal{\textsc{\Author}}}
-
-% right even head (date)
-\rehead{\headmark}
-
-% right odd head (chapter, page number)
-\rohead{\headmark \quad \pagemark}
+\lehead{\pagemark \quad \textnormal{\textsc{\Author}}} % left even head (page number, author)
+\rehead{\headmark} % right even head (date)
+\rohead{\headmark \quad \pagemark} % right odd head (chapter, page number)
 
 % Microtypography
 \usepackage[final, tracking = true, babel = true]{microtype}
@@ -150,5 +147,7 @@
     \include{1939-12-15_a-letter-to-james-p-cannon}
     \include{1939-12-15_a-petty-bourgeois-opposition-in-the-socialist-workers-party}
     \include{1939-12-18_a-letter-to-john-g-wright}
+    \include{1939-12-20_a-letter-to-max-shachtman}
+    \include{1939-12-26_four-letters-to-the-national-committee-majority}
 
 \end{document}
