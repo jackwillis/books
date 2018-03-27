@@ -91,6 +91,11 @@
 }{
   \end{flushleft}
 }
+\newcommand{\letterinfolabel}[1]{\textbf{\sffamily #1}}
+\newcommand{\firstpublished}{\letterinfolabel{First published:}}
+\newcommand{\checkedagainst}{\letterinfolabel{Checked against:}}
+\newcommand{\footnoteslatter}{\vskip 0.25\baselineskip
+	All footnotes stem from the latter edition.}
 
 \newenvironment{postscriptum}{
   \begin{minipage}{0.7\textwidth}
@@ -126,6 +131,11 @@
 \newcommand{\ed}{\emph{Ed.}}
 \newcommand{\etc}{etc}
 
+%   *
+% *   *
+% https://tex.stackexchange.com/a/194924
+\newcommand{\triast}{\bigskip\par\noindent\parbox{\linewidth}{\centering\large{\(\ast\)}\\[-4pt]{\(\ast\)}\hskip 0.75em{\(\ast\)}}\bigskip\par}
+
 % Fake small caps for italic Heuristica
 \newcommand{\fakesc}[1]{\textls{\footnotesize #1}}
 
@@ -149,5 +159,7 @@
     \include{1939-12-18_a-letter-to-john-g-wright}
     \include{1939-12-20_a-letter-to-max-shachtman}
     \include{1939-12-26_four-letters-to-the-national-committee-majority}
+    \include{1940-01-05_a-letter-to-joseph-hansen}
+    \include{1940-01-07_an-open-letter-to-comrade-burnham}
 
 \end{document}
