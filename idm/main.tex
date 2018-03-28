@@ -36,8 +36,8 @@
 \clearscrheadfoot
 
 \lehead{\pagemark \quad \textnormal{\textsc{\Author}}} % left even head (page number, author)
-\rehead{\headmark} % right even head (date)
-\rohead{\headmark \quad \pagemark} % right odd head (chapter, page number)
+% \rehead{\headmark} % right even head (date)
+\rohead{\textls{\headmark} \quad \pagemark} % right odd head (chapter, page number)
 
 % Microtypography
 \usepackage[final, tracking = true, babel = true]{microtype}
@@ -142,15 +142,16 @@
 %   *
 % *   *
 % https://tex.stackexchange.com/a/194924
-\newcommand{\triast}{\bigskip\par\noindent\parbox{\linewidth}{\centering\large{\(\ast\)}\\[-4pt]{\(\ast\)}\hskip 0.75em{\(\ast\)}}\bigskip\par}
+\newcommand{\triast}{\bigskip\par\noindent\parbox{\linewidth}{\centering\large \( \ast \quad \ast \quad \ast \) }\bigskip\par}
 
 % Fake small caps for italic Heuristica
-\newcommand{\fakesc}[1]{\textls{\footnotesize #1}}
+\newcommand{\fakesc}[1]{\textls{\small #1}}
 
 \begin{document}
 
   \frontmatter
     \maketitle
+    \include{copyright}
     \tableofcontents
 
   \mainmatter
@@ -169,5 +170,12 @@
     \include{1939-12-26_four-letters-to-the-national-committee-majority}
     \include{1940-01-05_a-letter-to-joseph-hansen}
     \include{1940-01-07_an-open-letter-to-comrade-burnham}
+    \include{1940-01-09_a-letter-to-james-p-cannon}
+    \include{1940-01-10_a-letter-to-farrell-dobbs}
+    \include{1940-01-13_a-letter-to-john-g-wright}
+    \include{1940-01-16_a-letter-to-james-p-cannon}
+    \include{1940-01-16_a-letter-to-william-f-warde}
+    \include{1940-01-18_a-letter-to-joseph-hansen}
+    \include{1940-01-24_from-a-scratch-to-the-danger-of-gangrene-1}
 
 \end{document}
