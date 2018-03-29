@@ -1,5 +1,9 @@
 html {
-  background: green;
+  background: #065e18;
+
+  border: 0 solid #55b8ae;
+  border-width: 0 5vw;
+
   display: grid;
   grid-template-rows: 1fr auto 2fr;
   height: 100%;
@@ -12,6 +16,8 @@ a:visited {
 }
 
 body {
+  padding: 0 5vw;
+
   grid-row: 2;
 
   font: 14pt sans-serif;
