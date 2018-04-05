@@ -1,8 +1,9 @@
 % Basic layout
 \documentclass[
-paper = 6in:9in,
-div = 16, % smallest margins
-12pt
+  12pt,
+  pagesize,
+  paper = 6in:9in,
+  DIV = 12
 ]{scrbook}
 
 % Encoding
@@ -13,12 +14,6 @@ div = 16, % smallest margins
 % Use Alegreya font super family
 \usepackage{Alegreya}
 \usepackage[black]{AlegreyaSans}
-
-% Use Alegreya Sans Regular Italic in page headers
-\setkomafont{pagehead}{\sffamily\mdseries\itshape}
-
-% Use Latin Modern Typewriter Proportional
-\renewcommand*\ttdefault{lmvtt}
 
 % Microtypography
 \usepackage[tracking = true, babel = true]{microtype}
@@ -43,6 +38,18 @@ div = 16, % smallest margins
 % Footnotes use roman numerals to distinguish from endnotes
 \renewcommand{\thefootnote}{\roman{footnote}}
 
+% Drop caps
+\usepackage{lettrine}
+\newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-6pt, nindent=-2pt, findent=2pt]{F}{#1}}
+
+% Blockquote styling
+\usepackage{etoolbox}
+\AtBeginEnvironment{quotation}{\small}
+\AtBeginEnvironment{quote}{\small}
+
+% The nowidow package provides \nowidow and \noclub
+\usepackage{nowidow}
+
 % PDF metadata
 \usepackage[a-1b]{pdfx}
 \title{Revolution and Counter Revolution in Spain}
@@ -52,25 +59,25 @@ div = 16, % smallest margins
 
 \frontmatter
 
-  \pdfbookmark[0]{Title}{title}
-  \include{titlepages}
+  %\pdfbookmark[0]{Title}{title}
+  %\include{titlepages}
   
-  \pdfbookmark[0]{Contents}{contents}
-  \tableofcontents
+  %\pdfbookmark[0]{Contents}{contents}
+  %\tableofcontents
 
   \include{foreword}
 
 \mainmatter
 
-  \include{chapter1}
-  \include{chapter2}
-  \include{chapter3}
-  \include{chapter4}
-  \include{chapter5}
-  \include{chapter6}
+  %\include{chapter1}
+  %\include{chapter2}
+  %\include{chapter3}
+  %\include{chapter4}
+  %\include{chapter5}
+  %\include{chapter6}
 
 \backmatter
 
-  \printendnotes
+  %\printendnotes
 
 \end{document}
