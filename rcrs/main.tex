@@ -12,7 +12,7 @@
 \usepackage[english]{babel}
 
 % Use Alegreya font super family
-\usepackage{Alegreya}
+\usepackage[black]{Alegreya}
 \usepackage[black]{AlegreyaSans}
 
 % Microtypography
@@ -44,6 +44,7 @@
 \newcommand{\lettrineA}[1]{\lettrine[lines=3, slope=4pt, findent=-3pt]{A}{#1}}
 \newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-4pt, nindent=-2pt, findent=4pt]{F}{#1}}
 \newcommand{\lettrineI}[1]{\lettrine[lines=3, findent=3pt, nindent=0pt]{I}{#1}}
+\newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=2pt, nindent=6pt, slope=-6pt]{O}{#1}}
 \newcommand{\lettrineP}[1]{\lettrine[lines=3, findent=3pt, nindent=3pt, slope=-9pt]{P}{#1}}
 \newcommand{\lettrineT}[1]{\lettrine[lines=3, findent=2pt, nindent=0pt]{T}{#1}}
 
@@ -60,29 +61,38 @@
 \title{Revolution and Counter Revolution in Spain}
 \author{Felix Morrow}
 
+% Text helpers
+\newcommand{\POUM}{\textsc{poum}}
+\newcommand{\CNT}{\textsc{cnt}}
+\newcommand{\UGT}{\textsc{ugt}}
+\newcommand{\PSUC}{\textsc{psuc}}
+\newcommand{\JCW}{\textsc{jcw}}
+\newcommand{\ERC}{\textsc{erc}}
+
 \begin{document}
 
 \frontmatter
 
-  %\pdfbookmark[0]{Title}{title}
-  %\include{titlepages}
+  \pdfbookmark[0]{Title}{title}
+  \include{titlepages}
   
-  %\pdfbookmark[0]{Contents}{contents}
-  %\tableofcontents
+  \pdfbookmark[0]{Contents}{contents}
+  \tableofcontents
 
-  %\include{foreword}
+  \include{foreword}
 
 \mainmatter
 
-  %\include{chapter1}
-  %\include{chapter2}
-  %\include{chapter3}
-  %\include{chapter4}
-  %\include{chapter5}
+  \include{chapter1}
+  \include{chapter2}
+  \include{chapter3}
+  \include{chapter4}
+  \include{chapter5}
   \include{chapter6}
+  \include{chapter7}
 
 \backmatter
 
-  %\printendnotes
+  \printendnotes
 
 \end{document}
