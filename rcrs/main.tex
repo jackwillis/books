@@ -40,7 +40,10 @@
 
 % Drop caps
 \usepackage{lettrine}
-\newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-6pt, nindent=-2pt, findent=2pt]{F}{#1}}
+
+\newcommand{\lettrineA}[1]{\lettrine[lines=3, slope=4pt, findent=-3pt]{A}{#1}}
+\newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-4pt, nindent=-2pt, findent=4pt]{F}{#1}}
+\newcommand{\lettrineT}[1]{\lettrine[lines=3, findent=2pt, nindent=0pt]{T}{#1}}
 
 % Blockquote styling
 \usepackage{etoolbox}
@@ -65,12 +68,12 @@
   %\pdfbookmark[0]{Contents}{contents}
   %\tableofcontents
 
-  \include{foreword}
+  %\include{foreword}
 
 \mainmatter
 
   %\include{chapter1}
-  %\include{chapter2}
+  \include{chapter2}
   %\include{chapter3}
   %\include{chapter4}
   %\include{chapter5}
