@@ -36,6 +36,9 @@
 % Arbitrary font sizes are used by titlepage.tex
 \usepackage{anyfontsize}
 
+% Provides framed environment
+\usepackage{framed}
+
 % Use `\endnote` instead of `\footnote`
 \usepackage[totoc = chapter]{enotez}
 
@@ -46,6 +49,7 @@
 \usepackage{lettrine}
 
 \newcommand{\lettrineA}[1]{\lettrine[lines=3, slope=4pt, findent=-3pt]{A}{#1}}
+\newcommand{\lettrineE}[1]{\lettrine[lines=3, findent=0pt, nindent=2pt]{E}{#1}}
 \newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-4pt, nindent=-2pt, findent=4pt]{F}{#1}}
 \newcommand{\lettrineI}[1]{\lettrine[lines=3, findent=2pt, nindent=1pt]{I}{#1}}
 \newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=2pt, nindent=6pt, slope=-6pt]{O}{#1}}
@@ -76,7 +80,8 @@
 \newcommand{\JCW}{\textsc{jcw}}
 \newcommand{\ERC}{\textsc{erc}}
 
-\newcommand{\separatorline}{\noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil}
+\newcommand{\separatorline}{\begin{center}\rule{0.75\textwidth}{.4pt}\end{center}}
+\newcommand{\dinkus}{\bigskip {\centering\noindent\( \ast\ \ast\ \ast\)\par} \bigskip}
 
 \begin{document}
 
@@ -101,6 +106,7 @@
   \include{chapter7}
   \include{chapter8}
   \include{chapter9}
+  \include{chapter10}
 
 \backmatter
 
