@@ -17,6 +17,7 @@ This document uses the following packages from [CTAN](https://ctan.org/):
 * [anyfontsize](https://ctan.org/pkg/anyfontsize)
 * [alegreya](https://ctan.org/pkg/alegreya)
 * [babel](https://ctan.org/pkg/babel)
+* [ellipsis](https://ctan.org/pkg/ellipsis)
 * [enotez](https://ctan.org/pkg/enotez)
 * [etoolbox](https://ctan.org/pkg/etoolbox)
 * [fontenc](https://ctan.org/pkg/fontenc)
