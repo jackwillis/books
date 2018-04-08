@@ -2,7 +2,7 @@
 
 This document was typeset using [LaTeX](https://www.latex-project.org/).
 
-It is a 6″×9″ book which uses 12pt [Alegreya](https://www.huertatipografica.com/en/fonts/alegreya-ht-pro) (these settings are in `main.tex`).
+It is a 6″×9″ book which uses 12pt [Alegreya](https://www.huertatipografica.com/en/fonts/alegreya-ht-pro) (these settings are in [`main.tex`](https://github.com/jackwillis/books/blob/master/rcrs/main.tex)).
 
 To build the PDF, run:
 
