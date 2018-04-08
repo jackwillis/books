@@ -6,7 +6,7 @@ It is a 6″×9″ book which uses 12pt [Alegreya](https://www.huertatipografica
 
 To build the PDF, run:
 
-$ pdflatex main.tex
+    $ pdflatex main.tex
 
 You may have to run this command multiple times to make sure the table of contents, endnotes, etc. are compiled.
 
