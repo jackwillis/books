@@ -7,6 +7,9 @@
   openany
 ]{scrbook}
 
+% Show bad (overfull) boxes
+\overfullrule=5pt
+
 % Encoding
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -17,7 +20,7 @@
 \usepackage[osf]{AlegreyaSans}
 
 % Microtypography
-\usepackage[tracking = true, babel = true]{microtype}
+\usepackage[final, tracking = true, babel = true]{microtype}
 \SetTracking{encoding = {*}, shape = {sc, scit}}{40}
 
 % Chapter dots -- https://tex.stackexchange.com/q/292882
