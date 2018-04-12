@@ -91,9 +91,13 @@
 \newcommand{\dinkus}{\medskip {\centering\noindent\( \ast \quad \ast \quad \ast\)\par} \medskip}
 \newcommand{\dinkette}{\begin{center}\( \ast \)\end{center}}
 
-% Indexing -- provides \index and \see
+% Indexing -- provides \index, \see, and \printendnotes
 \usepackage{makeidx}
-\makeindex
+\makeindex % tells TeX to generate files necessary for `makeindex`
+\usepackage[nottoc]{tocbibind} % adds index to table of contents
+
+% Section (sub-chapter) counters should be Roman numerals -- Arabic numerals look too technical
+\renewcommand\thesection{\Roman{section}}
 
 \begin{document}
 
