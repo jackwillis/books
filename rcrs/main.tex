@@ -91,6 +91,10 @@
 \newcommand{\dinkus}{\medskip {\centering\noindent\( \ast \quad \ast \quad \ast\)\par} \medskip}
 \newcommand{\dinkette}{\begin{center}\( \ast \)\end{center}}
 
+% Indexing -- provides \index and \see
+\usepackage{makeidx}
+\makeindex
+
 \begin{document}
 
 \frontmatter
@@ -123,5 +127,6 @@
   \include{postscript}
 
   \printendnotes
+  \printindex
 
 \end{document}
