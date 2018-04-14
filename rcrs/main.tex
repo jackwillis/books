@@ -20,7 +20,7 @@
 \usepackage[osf]{AlegreyaSans}
 
 % Microtypography
-\usepackage[final, tracking = true, babel = true]{microtype}
+\usepackage[final, tracking = true, babel = true, kerning = true, stretch = 10, shrink = 10]{microtype}
 \SetTracking{encoding = {*}, shape = {sc, scit}}{40}
 
 % Chapter dots -- https://tex.stackexchange.com/q/292882
@@ -58,14 +58,20 @@
 \newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-4pt, nindent=-2pt, findent=4pt]{F}{#1}}
 \newcommand{\lettrineI}[1]{\lettrine[lines=3, findent=2pt, nindent=1pt]{I}{#1}}
 \newcommand{\lettrineL}[1]{\lettrine[lines=3, findent=-6pt, nindent=12pt]{L}{#1}}
-\newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=2pt, nindent=6pt, slope=-6pt]{O}{#1}}
+\newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=0pt, nindent=6pt, slope=-3pt]{O}{#1}}
 \newcommand{\lettrineP}[1]{\lettrine[lines=3, findent=3pt, nindent=3pt, slope=-9pt]{P}{#1}}
 \newcommand{\lettrineT}[1]{\lettrine[lines=3, findent=2pt, nindent=0pt]{T}{#1}}
 
 % Blockquote styling
+
 \usepackage{etoolbox}
-\AtBeginEnvironment{quotation}{\small}
-\AtBeginEnvironment{quote}{\small}
+
+% Keep track of whether we're in the endnotes section
+
+\newtoggle{endnotes}
+
+\AtBeginEnvironment{quotation}{\iftoggle{endnotes}{\footnotesize}{\small}}
+\AtBeginEnvironment{quote}{\iftoggle{endnotes}{\footnotesize}{\small}}
 
 % The nowidow package provides \nowidow and \noclub
 \usepackage{nowidow}
@@ -96,6 +102,15 @@
 \makeindex % tells TeX to generate files necessary for `makeindex`
 \usepackage[nottoc]{tocbibind} % adds index to table of contents
 
+\newcommand{\indexANin}{Nin, Andreas}
+\newcommand{\indexBBolloten}{\index{Bolloten, Burnett}}
+\newcommand{\indexGRobles}{\index{Robles, Gil}}
+\newcommand{\indexJGiral}{\index{Giral, Jose@Giral, Jos\'e}}
+\newcommand{\indexJHernandez}{\index{Hernandez, Jose@Hernandez, Jos\'e}}
+\newcommand{\indexJNegrin}{\index{Negrin, Juan@Negr\'in, Juan}}
+\newcommand{\indexPCE}{\index{Communist Party of Spain}}
+\newcommand{\indexVVidali}{\index{Vidali, Vittorio}}
+
 % Section (sub-chapter) counters should be Roman numerals -- Arabic numerals look too technical
 \renewcommand\thesection{\Roman{section}}
 
@@ -125,12 +140,16 @@
   \include{chapter10}
   \include{chapter11}
   \include{chapter12}
+  \include{chapter13}
 
 \backmatter
 
   \include{postscript}
 
+  \toggletrue{endnotes}
   \printendnotes
+  \togglefalse{endnotes}
+  
   \printindex
 
 \end{document}
