@@ -20,7 +20,7 @@
 \usepackage[osf]{AlegreyaSans}
 
 % Microtypography
-\usepackage[final, tracking = true, babel = true, kerning = true, stretch = 10, shrink = 10]{microtype}
+\usepackage[final, tracking = true, babel = true, stretch = 15, shrink = 15]{microtype}
 \SetTracking{encoding = {*}, shape = {sc, scit}}{40}
 
 % Chapter dots -- https://tex.stackexchange.com/q/292882
@@ -70,7 +70,7 @@
 
 \newtoggle{endnotes}
 
-\AtBeginEnvironment{quotation}{\iftoggle{endnotes}{\footnotesize}{\small}}
+\AtBeginEnvironment{quotation}{\microtypesetup{}\iftoggle{endnotes}{\footnotesize}{\small}}
 \AtBeginEnvironment{quote}{\iftoggle{endnotes}{\footnotesize}{\small}}
 
 % The nowidow package provides \nowidow and \noclub
@@ -102,12 +102,20 @@
 \makeindex % tells TeX to generate files necessary for `makeindex`
 \usepackage[nottoc]{tocbibind} % adds index to table of contents
 
-\newcommand{\indexANin}{Nin, Andreas}
+\newcommand{\indexbienionegro}{\index{Bienio negro@\emph{Bienio negro}}}
+
+\newcommand{\indexAHitler}{\index{Hitler, Adolf}}
+\newcommand{\indexALerroux}{\index{Lerroux, Alejandro}}
+\newcommand{\indexANin}{\index{Nin, Andreas}}
 \newcommand{\indexBBolloten}{\index{Bolloten, Burnett}}
+\newcommand{\indexBMussolini}{\index{Mussolini, Benito}}
+\newcommand{\indexFFranco}{\index{Franco, Francisco}}
 \newcommand{\indexGRobles}{\index{Robles, Gil}}
 \newcommand{\indexJGiral}{\index{Giral, Jose@Giral, Jos\'e}}
 \newcommand{\indexJHernandez}{\index{Hernandez, Jose@Hernandez, Jos\'e}}
 \newcommand{\indexJNegrin}{\index{Negrin, Juan@Negr\'in, Juan}}
+\newcommand{\indexLCaballero}{\index{Caballero, Largo}}
+\newcommand{\indexLFischer}{\index{Fischer, Louis}}
 \newcommand{\indexPCE}{\index{Communist Party of Spain}}
 \newcommand{\indexVVidali}{\index{Vidali, Vittorio}}
 
