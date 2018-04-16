@@ -102,9 +102,14 @@
 \makeindex % tells TeX to generate files necessary for `makeindex`
 \usepackage[nottoc]{tocbibind} % adds index to table of contents
 
+% https://tex.stackexchange.com/q/318472/160204
+\newcommand\gobbleone[1]{}
+\newcommand*{\seeonly}[2]{\ (\emph{\seename} #1)}
+
 \newcommand{\indexbienionegro}{\index{Bienio negro@\emph{Bienio negro}}}
 \newcommand{\indexCNT}{\index{CNT@\CNT}}
 \newcommand{\indexEsquerra}{\index{ERC@\ERC}}
+\index{Esquerra \seeonly{ERC}|gobbleone}
 
 \newcommand{\indexClaridad}{\index{Claridad@\emph{Claridad}}}
 \newcommand{\indexLaBatalla}{\index{La Batalla@\emph{La Batalla}}}
@@ -114,15 +119,18 @@
 \newcommand{\indexALerroux}{\index{Lerroux, Alejandro}}
 \newcommand{\indexANin}{\index{Nin, Andreas}}
 \newcommand{\indexBBolloten}{\index{Bolloten, Burnett}}
-\newcommand{\indexLCompanys}{\index{Companys, Lluis@Companys, Llu\'is}}
 \newcommand{\indexBMussolini}{\index{Mussolini, Benito}}
+\newcommand{\indexDBarrio}{\index{Barrio, Diego@Barrio, Diego Mart\'inez}}
 \newcommand{\indexFFranco}{\index{Franco, Francisco}}
 \newcommand{\indexGRobles}{\index{Robles, Gil}}
+\newcommand{\indexIPrieto}{\index{Prieto, Indalecio}}
 \newcommand{\indexJGiral}{\index{Giral, Jose@Giral, Jos\'e}}
 \newcommand{\indexJHernandez}{\index{Hernandez, Jose@Hernandez, Jos\'e}}
 \newcommand{\indexJNegrin}{\index{Negrin, Juan@Negr\'in, Juan}}
 \newcommand{\indexLCaballero}{\index{Caballero, Largo}}
+\newcommand{\indexLCompanys}{\index{Companys, Lluis@Companys, Llu\'is}}
 \newcommand{\indexLFischer}{\index{Fischer, Louis}}
+\newcommand{\indexMAzana}{\index{Azana, Manuel@Azaña, Manuel}}
 \newcommand{\indexPCE}{\index{Communist Party of Spain}}
 \newcommand{\indexVVidali}{\index{Vidali, Vittorio}}
 
