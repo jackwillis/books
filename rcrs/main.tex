@@ -44,6 +44,12 @@
 
 \usepackage{ellipsis}
 
+\usepackage{ragged2e} % provides \FlushLeft (\flushleft with hyphenation)
+
+\usepackage{enumitem}
+
+\usepackage{multicol}
+
 % Provides `\endnote`
 \usepackage[totoc = chapter]{enotez}
 
@@ -138,6 +144,9 @@
 \newcommand{\indexCNT}{\index{CNT@\CNT}}
 \newcommand{\indexEsquerra}{\index{ERC@\ERC}}
 \index{Esquerra \seeonly{\ERC}|gobbleone}
+\newcommand{\indexGPU}{\index{GPU@\GPU}}
+\newcommand{\indexPOUM}{\index{POUM@\POUM}}
+\newcommand{\indexUSSR}{\index{USSR@\USSR}}
 
 \newcommand{\indexClaridad}{\index{Claridad@\emph{Claridad}}}
 \newcommand{\indexLaBatalla}{\index{La Batalla@\emph{La Batalla}}}
@@ -145,7 +154,7 @@
 
 \newcommand{\indexAHitler}{\index{Hitler, Adolf}}
 \newcommand{\indexALerroux}{\index{Lerroux, Alejandro}}
-\newcommand{\indexANin}{\index{Nin, Andreas}}
+\newcommand{\indexANin}{\index{Nin Perez, Andreas}}
 \newcommand{\indexBBolloten}{\index{Bolloten, Burnett}}
 \newcommand{\indexBMussolini}{\index{Mussolini, Benito}}
 \newcommand{\indexDBarrio}{\index{Barrio, Diego@Barrio, Diego Mart\'inez}}
