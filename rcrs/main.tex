@@ -81,8 +81,10 @@
 }
 \renewcommand{\thesection}{\fancyromannumeral{\number\value{section}}}
 
-% RNF = roman numeral font
-\newcommand{\rnf}[1]{\scalebox{1.3}[0.9]{#1}}
+% RN = roman numeral
+\newcommand{\textrn}[1]{\scalebox{1.3}[0.9]{\textrm{#1}}}
+
+\renewcommand*{\sectionformat}{\textrn{\thesection}\enskip}
 
 % Drop caps
 \usepackage{lettrine}
