@@ -4,7 +4,8 @@
   pagesize,
   paper = 6in:9in,
   DIV = 12,
-  openany
+  openany,
+  toc = flat
 ]{scrbook}
 
 % Show bad (overfull) boxes
@@ -62,6 +63,10 @@
 \usepackage{graphicx}
 
 % Custom roman numeral kerning
+
+% RN = roman numeral
+\newcommand{\textrn}[1]{\scalebox{1.3}[0.9]{\textrm{#1}}}
+
 \newcommand{\fancyromannumeral}[1]{%
   \ifcase#1 \ensuremath{\emptyset}%
   \or I%
@@ -79,19 +84,17 @@
   \else \romannumeral{#1}%
   \fi%
 }
-\renewcommand{\thesection}{\fancyromannumeral{\number\value{section}}}
 
-% RN = roman numeral
-\newcommand{\textrn}[1]{\scalebox{1.3}[0.9]{\textrm{#1}}}
+\renewcommand*{\sectionformat}{\textrn{\fancyromannumeral{\number\value{section}}}\enskip}
 
-\renewcommand*{\sectionformat}{\textrn{\thesection}\enskip}
+\renewcommand{\thesection}{\roman{section}}
 
 % Drop caps
 \usepackage{lettrine}
 
 \newcommand{\lettrineA}[1]{\lettrine[lines=3, slope=4pt, findent=-3pt]{A}{#1}}
 \newcommand{\lettrineE}[1]{\lettrine[lines=3, findent=0pt, nindent=2pt]{E}{#1}}
-\newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-4pt, nindent=-2pt, findent=4pt]{F}{#1}}
+\newcommand{\lettrineF}[1]{\lettrine[lines=3, slope=-7pt, nindent=0pt, findent=2pt]{F}{#1}}
 \newcommand{\lettrineI}[1]{\lettrine[lines=3, findent=2pt, nindent=1pt]{I}{#1}}
 \newcommand{\lettrineL}[1]{\lettrine[lines=3, findent=-6pt, nindent=12pt]{L}{#1}}
 \newcommand{\lettrineM}[1]{\lettrine[lines=3]{M}{#1}}
@@ -151,11 +154,13 @@
 \newcommand{\indexGEPCI}{\index{GEPCI@\GEPCI}}
 \newcommand{\indexGPU}{\index{GPU@\GPU}}
 \newcommand{\indexPOUM}{\index{POUM@\POUM}}
+\newcommand{\indexPSUC}{\index{POUM@\PSUC}}
 \newcommand{\indexUGT}{\index{UGT@\UGT}}
 \newcommand{\indexUSSR}{\index{USSR@\USSR}}
 
 \newcommand{\indexClaridad}{\index{Claridad@\emph{Claridad}}}
 \newcommand{\indexLaBatalla}{\index{La Batalla@\emph{La Batalla}}}
+\newcommand{\indexLibertad}{\index{Libertad@\emph{Libertad}}}
 \newcommand{\indexMundoObrero}{\index{Mundo Obrero@\emph{Mundo Obrero}}}
 \newcommand{\indexNYT}{\index{New York Times@\emph{New York Times}}}
 \newcommand{\indexSolidaridadObrera}{\index{Solidaridad Obrera@\emph{Solidaridad Obrera}}}
