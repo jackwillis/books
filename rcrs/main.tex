@@ -4,8 +4,7 @@
   pagesize,
   paper = 6in:9in,
   DIV = 12,
-  openany,
-  toc = flat
+  openany
 ]{scrbook}
 
 % Show bad (overfull) boxes
@@ -21,8 +20,45 @@
 \usepackage[osf]{AlegreyaSans}
 
 % Microtypography
-\usepackage[final, tracking = true, babel = true, stretch = 15, shrink = 15]{microtype}
+\usepackage[final, tracking = true, kerning = true, spacing = {}, stretch = 15, shrink = 15]{microtype}
+
 \SetTracking{encoding = {*}, shape = {sc, scit}}{40}
+
+\SetExtraKerning[unit=space]{
+  encoding={*},
+  family={*},
+  series={*},
+  size={footnotesize,small,normalsize}
+}{
+  F={-125,0},
+  P={-125,0},
+  L={-75,25},
+
+  {–}={75,75},
+  {—}={500,500},
+  {“}={0,200},
+  {”}={200,0},
+  {‘}={-50,100},
+  {’}={100,-50},
+  {,}={-200,0},
+  {.}={0,0}
+}
+
+% small caps kerning
+\SetExtraKerning[unit=space]{
+  encoding={*},
+  family={*},
+  series={*},
+  shape={sc,scit},
+  size={footnotesize,small,normalsize}
+}{
+  c={-75,0},
+  n={0,75},
+  a={-75,0}
+}
+
+\newcommand{\kn}{\kern -0.5pt} % negative kerning
+\newcommand{\kp}{\kern 0.5pt} % positive kerning
 
 % Chapter dots -- https://tex.stackexchange.com/q/292882
 \KOMAoption{chapterentrydots}{true}
@@ -86,8 +122,10 @@
 }
 
 \renewcommand*{\sectionformat}{\textrn{\fancyromannumeral{\number\value{section}}}\enskip}
-
 \renewcommand{\thesection}{\roman{section}}
+
+% https://tex.stackexchange.com/a/102313/160204
+\renewcommand*{\chapterformat}{\thechapter\enskip}
 
 % Drop caps
 \usepackage{lettrine}
@@ -100,6 +138,7 @@
 \newcommand{\lettrineM}[1]{\lettrine[lines=3]{M}{#1}}
 \newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=0pt, nindent=6pt, slope=-3pt]{O}{#1}}
 \newcommand{\lettrineP}[1]{\lettrine[lines=3, findent=3pt, nindent=3pt, slope=-9pt]{P}{#1}}
+\newcommand{\lettrineS}[1]{\lettrine[lines=3]{S}{#1}}
 \newcommand{\lettrineT}[1]{\lettrine[lines=3, findent=2pt, nindent=1pt]{T}{#1}}
 
 % Blockquote styling
@@ -107,10 +146,9 @@
 \usepackage{etoolbox}
 
 % Keep track of whether we're in the endnotes section
-
 \newtoggle{endnotes}
 
-\AtBeginEnvironment{quotation}{\microtypesetup{}\iftoggle{endnotes}{\footnotesize}{\small}}
+\AtBeginEnvironment{quotation}{\iftoggle{endnotes}{\footnotesize}{\small}}
 \AtBeginEnvironment{quote}{\iftoggle{endnotes}{\footnotesize}{\small}}
 
 % The nowidow package provides \nowidow and \noclub
@@ -118,8 +156,16 @@
 
 % PDF metadata
 \usepackage[a-1b]{pdfx}
-\title{Revolution and Counter Revolution in Spain}
-\author{Felix Morrow}
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Revolution and Counter-Revolution in Spain}
+  \Author{Felix Morrow}
+  \Subject{Spanish civil war}
+  \Keywords{Spanish civil war\sep Spain\sep Marxism\sep Trotskyism}
+  \Publisher{Madison Socialist Alternative}
+  \PublicationType{book}
+  \Copyright{Creative Commons Attribution-ShareAlike 4.0 International}
+  \CopyrightURL{https://creativecommons.org/licenses/by-sa/4.0/}
+\end{filecontents*}
 
 % Text helpers
 \newcommand{\POUM}{\textsc{poum}}
@@ -141,7 +187,6 @@
 % Indexing -- provides \index, \see, and \printendnotes
 \usepackage{makeidx}
 \makeindex % tells TeX to generate files necessary for `makeindex`
-\usepackage[nottoc]{tocbibind} % adds index to table of contents
 
 % https://tex.stackexchange.com/q/318472/160204
 \newcommand\gobbleone[1]{}
@@ -185,6 +230,7 @@
 \newcommand{\indexSPozas}{\index{Pozas Perea, Sebastian@Pozas Perea, Sebastián}}
 \newcommand{\indexVVidali}{\index{Vidali, Vittorio}}
 
+
 \begin{document}
 
 \frontmatter
@@ -193,7 +239,9 @@
   \include{titlepages}
   
   \pdfbookmark[0]{Contents}{contents}
-  \tableofcontents
+  \microtypesetup{protrusion=false}
+    \tableofcontents
+  \microtypesetup{protrusion=true}
 
   \include{foreword}
 
@@ -215,15 +263,21 @@
   \include{chapter14}
   \include{chapter15}
   \include{chapter16}
+  \include{chapter17}
 
 \backmatter
 
   \include{postscript}
 
+  \pagestyle{myheadings}
+
+  \markboth{Notes}{}
   \toggletrue{endnotes}
-  \printendnotes
+    \printendnotes
   \togglefalse{endnotes}
   
+  \markboth{Index}{}
+  \addcontentsline{toc}{chapter}{Index}
   \printindex
 
 \end{document}
