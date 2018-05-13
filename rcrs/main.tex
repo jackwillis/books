@@ -4,6 +4,7 @@
   pagesize,
   paper = 6in:9in,
   DIV = 12,
+  chapterprefix = on,
   openany
 ]{scrbook}
 
@@ -36,11 +37,11 @@
 
   {–}={75,75},
   {—}={500,500},
-  {“}={0,200},
-  {”}={200,0},
+  {“}={0,150},
+  {”}={150,0},
   {‘}={-50,100},
   {’}={100,-50},
-  {,}={-200,0},
+  {,}={-250,0},
   {.}={0,0}
 }
 
@@ -101,7 +102,7 @@
 % Custom roman numeral kerning
 
 % RN = roman numeral
-\newcommand{\textrn}[1]{\scalebox{1.3}[0.9]{\textrm{#1}}}
+\newcommand{\textrn}[1]{\scalebox{1.5}[0.75]{\textrm{#1}}}
 
 \newcommand{\fancyromannumeral}[1]{%
   \ifcase#1 \ensuremath{\emptyset}%
@@ -121,11 +122,25 @@
   \fi%
 }
 
-\renewcommand*{\sectionformat}{\textrn{\fancyromannumeral{\number\value{section}}}\enskip}
+% https://tex.stackexchange.com/a/102313/160204
+% https://tex.stackexchange.com/q/298491/160204
+
 \renewcommand{\thesection}{\roman{section}}
 
-% https://tex.stackexchange.com/a/102313/160204
-\renewcommand*{\chapterformat}{\thechapter\enskip}
+\renewcommand*{\sectionformat}{%
+  \color{gray}
+  \textrn{%
+  	\fancyromannumeral{\number\value{section}}
+  }
+}
+
+\renewcommand*{\chapterformat}{
+  \fontsize{144}{72}\selectfont
+  \color{lightgray}
+  \thechapter
+}
+
+\renewcommand*{\raggedchapter}{\raggedleft}
 
 % Drop caps
 \usepackage{lettrine}
