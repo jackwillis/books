@@ -1,0 +1,14 @@
+desc 'clean up generated files'
+task :clean do
+  p FileUtils.rm Dir.glob '*.{aux,log,out,toc,synctex.gz,ind,ilg,xmpi}'
+end
+
+desc 'make PDF suitable for web distribution'
+task :web do
+  sh 'pdflatex main'
+end
+
+desc 'make PDF suitable for printing'
+task :print do
+  sh 'pdflatex \\def\\forprinting{}\\input{main}'
+end
