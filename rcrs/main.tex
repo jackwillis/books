@@ -12,7 +12,16 @@
 \overfullrule=5pt
 
 % Encoding
-\usepackage[T1]{fontenc}
+
+% Use OT1 font encoding if we're sending the file to a printer,
+% since it provides more ligatures.
+% Use T1 for PDF distribution since it handles copy/paste better.
+\ifdefined\forprinting
+  \usepackage[OT1]{fontenc}
+\else
+  \usepackage[T1]{fontenc}
+\fi
+
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
@@ -35,13 +44,13 @@
   P={-125,0},
   L={-75,25},
 
-  {–}={75,75},
+  {–}={0,0},
   {—}={500,500},
   {“}={0,150},
   {”}={150,0},
-  {‘}={-50,100},
-  {’}={100,-50},
-  {,}={-250,0},
+  {‘}={0,100},
+  {’}={100,0},
+  {,}={-100,0},
   {.}={0,0}
 }
 
@@ -64,14 +73,24 @@
 % Chapter dots -- https://tex.stackexchange.com/q/292882
 \KOMAoption{chapterentrydots}{true}
 
+
 % Hyperlink styles
 \usepackage[setpagesize = false, pdfpagelayout = TwoPageRight]{hyperref}
-\usepackage{xcolor}
+
+% PDF colors and metadata
+
+\ifdefined\forprinting
+  \usepackage[x-1]{pdfx}
+\else
+  \usepackage{xcolor}
+  \usepackage[a-1b]{pdfx}
+\fi
+
 \hypersetup{
-	colorlinks,
-	linkcolor = {red!50!black},
-	citecolor = {red!50!black},
-	urlcolor = {blue!80!black}
+  colorlinks,
+  linkcolor = {red!50!black},
+  citecolor = {red!50!black},
+  urlcolor = {blue!80!black}
 }
 
 % Arbitrary font sizes are used by titlepage.tex
@@ -128,7 +147,7 @@
 \renewcommand{\thesection}{\roman{section}}
 
 \renewcommand*{\sectionformat}{%
-  \color{gray}
+  \color{gray!75}
   \textrn{%
   	\fancyromannumeral{\number\value{section}}
   }
@@ -168,19 +187,6 @@
 
 % The nowidow package provides \nowidow and \noclub
 \usepackage{nowidow}
-
-% PDF metadata
-\usepackage[a-1b]{pdfx}
-\begin{filecontents*}{\jobname.xmpdata}
-  \Title{Revolution and Counter-Revolution in Spain}
-  \Author{Felix Morrow}
-  \Subject{Spanish civil war}
-  \Keywords{Spanish civil war\sep Spain\sep Marxism\sep Trotskyism}
-  \Publisher{Madison Socialist Alternative}
-  \PublicationType{book}
-  \Copyright{Creative Commons Attribution-ShareAlike 4.0 International}
-  \CopyrightURL{https://creativecommons.org/licenses/by-sa/4.0/}
-\end{filecontents*}
 
 % Text helpers
 \newcommand{\POUM}{\textsc{poum}}
