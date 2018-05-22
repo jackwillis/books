@@ -110,8 +110,8 @@
 % Provides `\endnote`
 \usepackage[totoc = chapter]{enotez}
 
-% Footnotes use roman numerals to distinguish from endnotes
-\renewcommand{\thefootnote}{\roman{footnote}}
+% Footnotes use symbols to distinguish from endnotes
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % Section (sub-chapter) counters should be Roman numerals -- Arabic numerals look too technical
 
@@ -161,6 +161,12 @@
 
 \renewcommand*{\raggedchapter}{\raggedleft}
 
+\renewcommand*{\captionformat}{}
+\renewcommand*{\figureformat}{}
+\renewcommand*{\thefigure}{}
+
+\setkomafont{caption}{\sffamily}
+
 % Drop caps
 \usepackage{lettrine}
 
@@ -170,7 +176,7 @@
 \newcommand{\lettrineI}[1]{\lettrine[lines=3, findent=2pt, nindent=1pt]{I}{#1}}
 \newcommand{\lettrineL}[1]{\lettrine[lines=3, findent=-6pt, nindent=12pt]{L}{#1}}
 \newcommand{\lettrineM}[1]{\lettrine[lines=3]{M}{#1}}
-\newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=0pt, nindent=6pt, slope=0pt]{O}{#1}}
+\newcommand{\lettrineO}[1]{\lettrine[lines=3, findent=3pt, nindent=0pt, slope=0pt]{O}{#1}}
 \newcommand{\lettrineP}[1]{\lettrine[lines=3, findent=3pt, nindent=3pt, slope=-9pt]{P}{#1}}
 \newcommand{\lettrineS}[1]{\lettrine[lines=3]{S}{#1}}
 \newcommand{\lettrineT}[1]{\lettrine[lines=3, findent=2pt, nindent=1pt]{T}{#1}}
