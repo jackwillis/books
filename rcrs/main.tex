@@ -22,15 +22,33 @@
   \usepackage[T1]{fontenc}
 \fi
 
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = us]{english}
+
+\usepackage{fontspec}
+
+\setmainfont{Alegreya}[
+	Path = ../fonts/,
+	UprightFont = *-Regular,
+	BoldFont = *-Bold,
+	ItalicFont = *-Italic,
+	BoldItalicFont = *-BoldItalic,
+]
+
+\setsansfont{Alegreya Sans}[
+	Path = ../fonts/,
+	UprightFont = *-Regular,
+	BoldFont = *-Bold,
+	ItalicFont = *-Italic,
+	BoldItalicFont = *-BoldItalic,
+]
 
 % Use Alegreya font super family
-\usepackage[osf]{Alegreya}
-\usepackage[osf]{AlegreyaSans}
+%\usepackage[osf]{Alegreya}
+%\usepackage[osf]{AlegreyaSans}
 
 % Microtypography
-\usepackage[final, tracking = true, kerning = true, spacing = {}, stretch = 15, shrink = 15]{microtype}
+\usepackage[final, tracking = true]{microtype}
 
 \SetTracking{encoding = {*}, shape = {sc, scit}}{40}
 
@@ -43,7 +61,6 @@
   F={-125,0},
   P={-125,0},
   L={-75,25},
-
   {–}={0,0},
   {—}={500,500},
   {“}={0,150},
