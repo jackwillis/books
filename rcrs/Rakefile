@@ -3,12 +3,39 @@ task :clean do
   p FileUtils.rm Dir.glob '*.{aux,log,out,toc,synctex.gz,ind,ilg,xmpi}'
 end
 
-desc 'make PDF suitable for web distribution'
-task :web do
-  sh 'pdflatex main'
+class String
+  def mgsub(key_value_pairs=[].freeze)
+    regexp_fragments = key_value_pairs.collect { |k,v| k }
+    gsub(Regexp.union(*regexp_fragments)) do |match|
+      key_value_pairs.detect{|k,v| k =~ match}[1]
+    end
+  end
+end
+
+desc 'clean up a file by replacing certain strings'
+task :sanitize, [:filename] do |_task, args|
+  filename = args[:filename]
+  
+  raise ArgumentError, "Usage: rake sanitize[file.tex]" \
+    if filename.nil?
+    
+  contents = IO.read(filename)
+  
+  fixed_contents = contents.mgsub([
+    [/\~--/, ' --'],
+    [/\\k[pn]\s*/, ''],
+    [/Hernandez/, 'Hern\\\'andez']
+  ])
+    
+  IO.write(filename, fixed_contents, mode: 'w')
+end
+
+desc 'generate index files'
+file :index do
+  sh 'makeindex main.idx'
 end
 
 desc 'make PDF suitable for printing'
-task :print do
-  sh 'pdflatex \\def\\forprinting{}\\input{main}'
+task :pdf do
+  sh 'lualatex main'
 end
