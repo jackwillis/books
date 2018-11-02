@@ -6,7 +6,7 @@
   footinclude = off,
   pagesize,
   paper = 6in:9in,
-  DIV = 15
+  DIV = 12
 ]{scrbook}
 
 % Encoding
@@ -15,8 +15,11 @@
 \usepackage[english]{babel}
 
 % Typography
-\usepackage[osf, scaled = 0.95]{heuristica}
-\usepackage[condensed]{cabin}
+%\usepackage[osf]{MinionPro}
+\usepackage[osf]{libertine}
+%\usepackage[sfdefault,osf]{carlito}
+%\usepackage[defaultsans,scale=0.95]{opensans}
+%\usepackage{berasans}
 
 \KOMAoption{chapterentrydots}{true} % https://tex.stackexchange.com/q/292882
 
@@ -61,6 +64,8 @@
   notes-sep = \baselineskip,
   format = \footnotesize
 }
+
+\usepackage{lettrine}
 
 % PDF & metadata
 \usepackage[a-1b]{pdfx}
