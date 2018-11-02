@@ -17,7 +17,7 @@ body {
 
   grid-row: 2;
 
-  font: 18px/24px Calibri, Carlito, "PT Sans", "Fira Sans", "Ubuntu", "Gill Sans", sans-serif;
+  font: 18px/24px Calibri, Carlito, "PT Sans", "Fira Sans", "Ubuntu", "Gill Sans", "Droid Sans", sans-serif;
   font-variant-numeric: oldstyle-nums;
   margin: auto;
   padding: 1em;
@@ -46,14 +46,24 @@ ul li {
   margin: 1em 0;
 }
 
-figure {
+.book-cover {
   background: lightgray;
   padding: 3vw 0;
 }
 
-figure img {
+.book-cover img {
   max-width: 100%;
   height: auto;
+
+  transform: none;
+  border-left: 0px solid #666666;
+
+  transition: transform 1s, border-left 1s;
+}
+
+.book-cover:hover img {
+  transform: rotateY(20deg);
+  border-left: 10px solid gray;
 }
 
 .author {
